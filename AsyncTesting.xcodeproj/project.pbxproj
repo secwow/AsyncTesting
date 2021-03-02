@@ -10,6 +10,7 @@
 		EF8D584025EE36B30063503C /* AsyncTesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF8D583625EE36B30063503C /* AsyncTesting.framework */; };
 		EF8D584525EE36B30063503C /* AsyncTestingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8D584425EE36B30063503C /* AsyncTestingTests.swift */; };
 		EF8D584725EE36B30063503C /* AsyncTesting.h in Headers */ = {isa = PBXBuildFile; fileRef = EF8D583925EE36B30063503C /* AsyncTesting.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EF8D585325EE36CE0063503C /* DispatchQueue+QueueDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8D585225EE36CE0063503C /* DispatchQueue+QueueDefinition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		EF8D583F25EE36B30063503C /* AsyncTestingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AsyncTestingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF8D584425EE36B30063503C /* AsyncTestingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncTestingTests.swift; sourceTree = "<group>"; };
 		EF8D584625EE36B30063503C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF8D585225EE36CE0063503C /* DispatchQueue+QueueDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+QueueDefinition.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			children = (
 				EF8D583925EE36B30063503C /* AsyncTesting.h */,
 				EF8D583A25EE36B30063503C /* Info.plist */,
+				EF8D585225EE36CE0063503C /* DispatchQueue+QueueDefinition.swift */,
 			);
 			path = AsyncTesting;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 				TargetAttributes = {
 					EF8D583525EE36B30063503C = {
 						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
 					};
 					EF8D583E25EE36B30063503C = {
 						CreatedOnToolsVersion = 12.4;
@@ -194,6 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF8D585325EE36CE0063503C /* DispatchQueue+QueueDefinition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,10 +345,11 @@
 		EF8D584B25EE36B30063503C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = D9QDMUUFK5;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -356,7 +362,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.brightSky.AsyncTesting;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -364,10 +372,11 @@
 		EF8D584C25EE36B30063503C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = D9QDMUUFK5;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -380,6 +389,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.brightSky.AsyncTesting;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -388,9 +398,10 @@
 		EF8D584E25EE36B30063503C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = D9QDMUUFK5;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = AsyncTestingTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -399,6 +410,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.brightSky.AsyncTestingTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -406,9 +418,10 @@
 		EF8D584F25EE36B30063503C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = D9QDMUUFK5;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = AsyncTestingTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -417,6 +430,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.brightSky.AsyncTestingTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

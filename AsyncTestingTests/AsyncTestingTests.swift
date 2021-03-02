@@ -8,26 +8,54 @@
 import XCTest
 @testable import AsyncTesting
 
-class AsyncTestingTests: XCTestCase {
+class SpyLoader: SomeLoader {
+    var loadCount: Int = 0
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func load() {
+        loadCount += 1
+    }
+}
+
+protocol SomeLoader {
+    func load()
+}
+
+class SomeAsync {
+    private var loader: SomeLoader
+
+    init(with loader: SomeLoader) {
+        self.loader = loader
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func load() {
+        DispatchQueue.performImmediateWhenOnMainQueue { [weak self] in
+            self?.loader.load()
         }
     }
+}
 
+class AsyncTestingTests: XCTestCase {
+    func testExampleOnMain() throws {
+        let spy = SpyLoader()
+        let someAsync = SomeAsync(with: spy)
+
+        for _ in 0..<100 {
+            someAsync.load()
+        }
+
+        XCTAssertEqual(spy.loadCount, 100)
+    }
+
+    func testExampleOnBackground() throws {
+        let spy = SpyLoader()
+        let someAsync = SomeAsync(with: spy)
+
+        DispatchQueue.concurrentPerform(iterations: 100) { _ in
+            for _ in 0..<100 {
+                someAsync.load()
+            }
+        }
+
+        XCTAssertNotEqual(spy.loadCount, 100)
+    }
 }
